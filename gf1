@@ -1,0 +1,1050 @@
+USE [LawersDB]
+GO
+/****** Object:  Table [dbo].[AboutHospital]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AboutHospital](
+	[ID] [int] NOT NULL,
+	[Name] [nvarchar](500) NULL,
+	[Path] [image] NULL,
+	[Alarm] [nvarchar](max) NULL,
+	[Mail] [nvarchar](250) NULL,
+	[Tele] [nvarchar](11) NULL,
+	[Address] [nvarchar](max) NULL,
+	[Printoption] [nvarchar](50) NULL,
+	[MailPath] [nvarchar](1050) NULL,
+ CONSTRAINT [PK_AboutHospital] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[ActionDetails]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ActionDetails](
+	[ID] [int] NOT NULL,
+	[workID] [int] NULL,
+	[Customer_ID] [int] NULL,
+	[GNumber] [int] NULL,
+	[Gname] [nvarchar](100) NULL,
+	[Gdate] [date] NULL,
+	[place] [nvarchar](200) NULL,
+	[lowerID] [int] NULL,
+ CONSTRAINT [PK_ActionDetails] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[AdminWorks]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AdminWorks](
+	[AdminWorkID] [int] NOT NULL,
+	[AdminWorkName] [nvarchar](200) NULL,
+ CONSTRAINT [PK_AdminWorks] PRIMARY KEY CLUSTERED 
+(
+	[AdminWorkID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Advocacy]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Advocacy](
+	[ID] [int] NOT NULL,
+	[AdvocacyName] [nvarchar](100) NULL,
+	[IssuesID] [int] NULL,
+	[date_add] [date] NULL,
+	[source] [nvarchar](100) NULL,
+	[text] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Advocacy] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Assets]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Assets](
+	[AssetsID] [int] NOT NULL,
+	[AssetsName] [nvarchar](200) NULL,
+ CONSTRAINT [PK_Assets] PRIMARY KEY CLUSTERED 
+(
+	[AssetsID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[AssetsAccounts]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AssetsAccounts](
+	[ID] [int] NOT NULL,
+	[TransDate] [date] NULL,
+	[AssestName] [nvarchar](200) NULL,
+	[AssetsID] [int] NULL,
+	[Employee_ID] [int] NULL,
+	[value] [numeric](18, 2) NULL,
+	[supplier] [nvarchar](200) NULL,
+	[startDate] [date] NULL,
+	[Notes] [nvarchar](200) NULL,
+ CONSTRAINT [PK_AssetsAccounts] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[BusinessAdmin]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BusinessAdmin](
+	[ID] [int] NOT NULL,
+	[receivedate] [date] NULL,
+	[Employee_ID] [int] NULL,
+	[Customer_ID] [int] NULL,
+	[procurID] [int] NULL,
+	[procurtype] [nvarchar](100) NULL,
+	[gehaName] [nvarchar](100) NULL,
+	[startdate] [date] NULL,
+	[total] [decimal](18, 3) NULL,
+	[AdminWorkID] [int] NULL,
+	[Gehaofsubject] [nvarchar](max) NULL,
+	[gehaaddress] [nvarchar](max) NULL,
+	[subject] [nvarchar](max) NULL,
+ CONSTRAINT [PK_BusinessAdmin] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[BusinessFees]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BusinessFees](
+	[transID] [int] NOT NULL,
+	[ID] [int] NULL,
+	[transDate] [date] NULL,
+	[Employee_ID] [int] NULL,
+	[Customer_ID] [int] NULL,
+	[totalFees] [decimal](18, 3) NULL,
+	[installNum] [int] NULL,
+	[PaidFees] [decimal](18, 3) NULL,
+	[remainfees] [decimal](18, 3) NULL,
+	[notes] [nvarchar](500) NULL,
+	[transdatails] [nvarchar](500) NULL,
+ CONSTRAINT [PK_BusinessFees] PRIMARY KEY CLUSTERED 
+(
+	[transID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Causes]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Causes](
+	[File_Nuumber] [int] NOT NULL,
+	[File_Date] [datetime] NULL,
+	[Cause_Number] [int] NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Cause_Date] [date] NULL,
+	[IssuesID] [int] NULL,
+	[Employee_ID] [int] NULL,
+	[Customer_ID] [int] NULL,
+	[Clients_charID] [int] NULL,
+	[procurID] [int] NULL,
+	[KhasmName] [nvarchar](200) NULL,
+	[Khasmmobile] [nvarchar](50) NULL,
+	[KhasmPhone] [nvarchar](50) NULL,
+	[KhasmAddress] [nvarchar](300) NULL,
+	[Khasmemail] [nvarchar](200) NULL,
+	[Khasm_charID] [int] NULL,
+	[litigationDegID] [int] NULL,
+	[courtID] [int] NULL,
+	[Court_Address] [nvarchar](300) NULL,
+	[Circle_Name] [nvarchar](200) NULL,
+	[Cause_Subject] [nvarchar](2000) NULL,
+	[Qed_date] [date] NULL,
+	[Total_Value] [numeric](18, 2) NULL,
+ CONSTRAINT [PK_Causes] PRIMARY KEY CLUSTERED 
+(
+	[File_Nuumber] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Causes_Experts]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Causes_Experts](
+	[File_Number] [int] NULL,
+	[Expert_id] [int] NULL,
+	[ExpertName] [nvarchar](500) NULL,
+	[Cause_Number] [int] NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Deliver_Date] [date] NULL,
+	[Employee_ID] [int] NULL,
+	[Note] [nvarchar](500) NULL,
+	[Visit_date] [date] NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Causes_Galsa]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Causes_Galsa](
+	[File_Number] [int] NOT NULL,
+	[Cause_Number] [int] NOT NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Galsa_Code] [int] NOT NULL,
+	[Galsa_Number] [int] NOT NULL,
+	[Galsa_Date] [date] NOT NULL,
+	[Paper_Number] [nvarchar](150) NULL,
+	[Employee_ID] [int] NULL,
+	[courtID] [int] NULL,
+	[Role_Number] [int] NULL,
+	[Court_Decision] [nvarchar](max) NULL,
+	[Requird] [nvarchar](max) NULL,
+	[Note] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Causes_Kafala]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Causes_Kafala](
+	[File_Number] [int] NOT NULL,
+	[Cause_Number] [int] NOT NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Kafala_Number] [int] NOT NULL,
+	[Kafala_Value] [numeric](18, 2) NULL,
+	[Qasema_Number] [int] NULL,
+	[Paper_Number] [nvarchar](50) NULL,
+	[Pay_Date] [date] NULL,
+	[Hokme] [nvarchar](max) NULL,
+	[Note] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Causes_Mohder]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Causes_Mohder](
+	[File_Number] [int] NULL,
+	[Mohder_number] [int] NOT NULL,
+	[Cause_Number] [int] NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Mohder_pen] [nvarchar](500) NULL,
+	[Deliver_Date] [date] NULL,
+	[Galsa_Date] [date] NULL,
+	[Employee_ID] [int] NULL,
+	[Note] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Causes_Pays]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Causes_Pays](
+	[Trans_ID] [int] NOT NULL,
+	[File_Number] [int] NOT NULL,
+	[Cause_Number] [int] NOT NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Trans_Date] [date] NOT NULL,
+	[Employee_ID] [int] NULL,
+	[Total_Value] [numeric](18, 2) NULL,
+	[Paied] [numeric](18, 2) NULL,
+	[Dofaa] [int] NULL,
+	[Bayan] [nvarchar](max) NULL,
+	[Note] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Causes_Pays] PRIMARY KEY CLUSTERED 
+(
+	[Trans_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[CausesCases]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[CausesCases](
+	[ID] [int] NOT NULL,
+	[File_Number] [int] NOT NULL,
+	[Cause_Number] [int] NOT NULL,
+	[Causeyear] [varchar](6) NULL,
+	[IssuStateID] [int] NOT NULL,
+	[isuueReasonsID] [int] NULL,
+	[Employee_ID] [int] NULL,
+	[Note] [nvarchar](max) NULL,
+	[ArshefNumber] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_CausesCases] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[CausesFolders]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[CausesFolders](
+	[File_Number] [int] NOT NULL,
+	[Cause_Number] [int] NOT NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Folder_Number] [int] NOT NULL,
+	[Folder_date] [date] NULL,
+	[Folder_Name] [nvarchar](1000) NULL,
+	[Folder_desc] [nvarchar](max) NULL,
+	[Folder_Path] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Clients_char]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Clients_char](
+	[Clients_charID] [int] NOT NULL,
+	[Clients_charName] [nvarchar](500) NULL,
+ CONSTRAINT [PK_Clients_char] PRIMARY KEY CLUSTERED 
+(
+	[Clients_charID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Consultion]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Consultion](
+	[ConsultID] [int] NOT NULL,
+	[ConsultName] [nvarchar](500) NULL,
+ CONSTRAINT [PK_Consultion] PRIMARY KEY CLUSTERED 
+(
+	[ConsultID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Courts]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Courts](
+	[courtID] [int] NOT NULL,
+	[courtName] [nvarchar](100) NULL,
+ CONSTRAINT [PK_Courts] PRIMARY KEY CLUSTERED 
+(
+	[courtID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Customer]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customer](
+	[Customer_ID] [int] NOT NULL,
+	[Customer_name] [nvarchar](100) NULL,
+	[Mobile] [nvarchar](100) NULL,
+	[Tele] [nvarchar](100) NULL,
+	[Address] [nvarchar](100) NULL,
+	[Email] [nvarchar](100) NULL,
+	[NationalityID] [int] NULL,
+	[Religion] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
+(
+	[Customer_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Customerhistory]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Customerhistory](
+	[Employee_ID] [int] NULL,
+	[Employee_Name] [nvarchar](100) NULL,
+	[File_Nuumber] [int] NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Customer_ID] [int] NULL,
+	[Cause_Number] [int] NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[CustomerPurcur]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CustomerPurcur](
+	[IDD] [int] IDENTITY(1,1) NOT NULL,
+	[ID] [int] NOT NULL,
+	[Customer_ID] [int] NULL,
+	[purcurDate] [date] NULL,
+	[procurID] [int] NULL,
+	[GehaName] [nvarchar](150) NULL,
+	[DocDate] [date] NULL,
+	[notes] [nvarchar](200) NULL,
+	[Path] [image] NULL,
+ CONSTRAINT [PK_CustomerPurcur_1] PRIMARY KEY CLUSTERED 
+(
+	[IDD] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[DailyTasks]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DailyTasks](
+	[TaskID] [int] NOT NULL,
+	[RecieveDate] [date] NULL,
+	[Employee_ID] [int] NULL,
+	[Customer_ID] [int] NULL,
+	[startDate] [date] NULL,
+	[LowerID] [int] NULL,
+	[taskDetails] [nvarchar](max) NULL,
+	[GehaName] [nvarchar](max) NULL,
+	[GehaAddress] [nvarchar](max) NULL,
+ CONSTRAINT [PK_DailyTasks] PRIMARY KEY CLUSTERED 
+(
+	[TaskID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Documents]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Documents](
+	[DocID] [int] NOT NULL,
+	[savedate] [date] NULL,
+	[DocName] [nvarchar](max) NULL,
+	[DocDetails] [nvarchar](max) NULL,
+	[DocPath] [nvarchar](max) NULL,
+ CONSTRAINT [PK_Documents] PRIMARY KEY CLUSTERED 
+(
+	[DocID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[Employee_ID] [int] NOT NULL,
+	[Employee_Name] [nvarchar](100) NULL,
+	[Mobile1] [nvarchar](50) NULL,
+	[Mobile2] [nvarchar](50) NULL,
+	[Profile_ID] [int] NULL,
+	[Address] [nvarchar](3000) NULL,
+	[qualification] [nvarchar](100) NULL,
+	[job] [nvarchar](100) NULL,
+	[StartDate] [date] NOT NULL,
+	[USERNAME] [nvarchar](100) NULL,
+	[Password] [nvarchar](100) NULL,
+	[Active] [bit] NULL,
+ CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED 
+(
+	[Employee_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Expenses]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Expenses](
+	[ID] [int] NOT NULL,
+	[ExpDate] [date] NULL,
+	[Supplier_ID] [int] NULL,
+	[Employee_ID] [int] NULL,
+	[Info] [nvarchar](200) NULL,
+	[total] [numeric](18, 2) NULL,
+	[Paid] [numeric](18, 2) NULL,
+	[EXType] [nvarchar](12) NULL,
+ CONSTRAINT [PK_Expenses] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[FeesTrans]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FeesTrans](
+	[transID] [int] NOT NULL,
+	[LegelAdvID] [int] NOT NULL,
+	[transDate] [date] NULL,
+	[Employee_ID] [int] NULL,
+	[totalFees] [decimal](18, 3) NULL,
+	[installNum] [int] NOT NULL,
+	[PaidFees] [decimal](18, 3) NULL,
+	[remainfees] [decimal](18, 3) NULL,
+	[transdatails] [nvarchar](500) NULL,
+	[notes] [nvarchar](500) NULL,
+ CONSTRAINT [PK_FeesTrans] PRIMARY KEY CLUSTERED 
+(
+	[transID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Forms]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Forms](
+	[Form_tag] [int] NOT NULL,
+	[Form_name] [nvarchar](500) NULL,
+	[Form_Source] [nvarchar](500) NULL,
+	[App_ID] [int] NULL,
+ CONSTRAINT [PK_Forms] PRIMARY KEY CLUSTERED 
+(
+	[Form_tag] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Functions_Forms]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Functions_Forms](
+	[Function_ID] [int] NOT NULL,
+	[Form_ID] [int] NOT NULL,
+	[Function_name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Functions_Forms] PRIMARY KEY CLUSTERED 
+(
+	[Function_ID] ASC,
+	[Form_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Galsa_Alarm]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Galsa_Alarm](
+	[ID] [int] NOT NULL,
+	[Galsa_ID] [int] NOT NULL,
+	[Alarm_time] [nvarchar](50) NULL,
+	[Alarm_date] [date] NULL,
+	[Alarm] [bit] NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Hokemtanfeez]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Hokemtanfeez](
+	[File_Number] [int] NULL,
+	[Cause_Number] [int] NULL,
+	[Causeyear] [varchar](6) NULL,
+	[Estenaf_Number] [int] NULL,
+	[Haser_Number] [int] NULL,
+	[TanfeezCircle] [nvarchar](2000) NULL,
+	[Hokem_date] [date] NULL,
+	[Judge_Name] [nvarchar](1000) NULL,
+	[courtID] [int] NULL,
+	[CenterName] [nvarchar](1000) NULL,
+	[Hokemsay] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[HomeMenu]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HomeMenu](
+	[ID] [bigint] NULL,
+	[name] [nvarchar](100) NULL,
+	[HeaderText] [nvarchar](100) NULL,
+	[IsForm] [bit] NULL,
+	[Form_Tag] [bigint] NULL,
+	[Parent] [bigint] NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Issues]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Issues](
+	[IssuesID] [int] NOT NULL,
+	[IssuesName] [nvarchar](500) NULL,
+ CONSTRAINT [PK_Issues] PRIMARY KEY CLUSTERED 
+(
+	[IssuesID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[IssuState]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[IssuState](
+	[IssuStateID] [int] NOT NULL,
+	[IssuStateName] [nvarchar](100) NULL,
+ CONSTRAINT [PK_IssuState] PRIMARY KEY CLUSTERED 
+(
+	[IssuStateID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[IsuueReasons]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[IsuueReasons](
+	[IssuStateID] [int] NULL,
+	[isuueReasonsID] [int] NULL,
+	[isuueReasonsName] [nvarchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[LegelAdvices]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[LegelAdvices](
+	[LegelAdvID] [int] NOT NULL,
+	[LegAdvDate] [date] NULL,
+	[Employee_ID] [int] NULL,
+	[Customer_ID] [int] NULL,
+	[ConsultID] [int] NULL,
+	[LowerID] [int] NULL,
+	[Fees] [decimal](18, 3) NULL,
+	[LegelAdviceabout] [nvarchar](500) NULL,
+ CONSTRAINT [PK_LegelAdvices] PRIMARY KEY CLUSTERED 
+(
+	[LegelAdvID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[litigationDeg]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[litigationDeg](
+	[litigationDegID] [int] NOT NULL,
+	[litigationDegNam] [nvarchar](100) NULL,
+ CONSTRAINT [PK_litigationDeg] PRIMARY KEY CLUSTERED 
+(
+	[litigationDegID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Loghistory]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Loghistory](
+	[Log_ID] [float] NULL,
+	[Employee_ID] [int] NULL,
+	[Exaplain] [nvarchar](max) NULL,
+	[Log_Date] [datetime] NULL,
+	[Log_Time] [varchar](50) NULL,
+	[Trans_ID] [float] NULL,
+	[Form_Tag] [int] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Nationalities]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Nationalities](
+	[NationalityID] [int] NOT NULL,
+	[NationalityName] [nvarchar](100) NULL,
+ CONSTRAINT [PK_Nationalities] PRIMARY KEY CLUSTERED 
+(
+	[NationalityID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[procuration]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[procuration](
+	[procurID] [int] NOT NULL,
+	[ProcurName] [nvarchar](100) NULL,
+ CONSTRAINT [PK_procuration] PRIMARY KEY CLUSTERED 
+(
+	[procurID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Profiles]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Profiles](
+	[Profile_ID] [int] NOT NULL,
+	[Profile_Name] [nvarchar](500) NULL,
+	[mainform] [int] NULL,
+ CONSTRAINT [PK_Profiles] PRIMARY KEY CLUSTERED 
+(
+	[Profile_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[saveimg]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[saveimg](
+	[id1] [int] IDENTITY(1,1) NOT NULL,
+	[id] [nvarchar](50) NULL,
+	[imagepath] [image] NULL,
+ CONSTRAINT [PK_saveimg] PRIMARY KEY CLUSTERED 
+(
+	[id1] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[SearchTable]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[SearchTable](
+	[Form_tag] [int] NULL,
+	[Form_Name] [varchar](150) NULL,
+	[FTable] [varchar](150) NULL,
+	[FColDB] [varchar](150) NULL,
+	[FCName] [varchar](150) NULL,
+	[FMaster] [bit] NULL,
+	[SearchHeader] [bit] NULL,
+	[FType] [varchar](150) NULL,
+	[Linked] [varchar](150) NULL,
+	[CodeKey] [varchar](150) NULL,
+	[LinkedCode] [varchar](150) NULL,
+	[LinkedName] [varchar](150) NULL,
+	[tasleme] [varchar](150) NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Serials]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Serials](
+	[Id_Serial] [int] IDENTITY(1,1) NOT NULL,
+	[SerialKey] [nvarchar](50) NOT NULL,
+	[SerialName] [nvarchar](max) NOT NULL,
+	[DateStart] [date] NOT NULL,
+	[DateEnd] [date] NOT NULL,
+	[Activated] [int] NOT NULL,
+ CONSTRAINT [PK_Serials] PRIMARY KEY CLUSTERED 
+(
+	[Id_Serial] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Settings_table]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Settings_table](
+	[setting_id] [int] NULL,
+	[setting_name] [nvarchar](1000) NULL,
+	[Setting_value] [nvarchar](4000) NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Suppliers]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Suppliers](
+	[Supplier_ID] [int] NOT NULL,
+	[Supplier_name] [nvarchar](100) NULL,
+	[Mobile] [nvarchar](11) NULL,
+	[Mandoub_name] [nvarchar](100) NULL,
+ CONSTRAINT [PK_Suppliers] PRIMARY KEY CLUSTERED 
+(
+	[Supplier_ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[TaskDocs]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TaskDocs](
+	[DOCID] [int] NOT NULL,
+	[TaskID] [int] NULL,
+	[savedate] [date] NULL,
+	[DocName] [nvarchar](max) NULL,
+	[DocDetails] [nvarchar](max) NULL,
+	[DocPath] [nvarchar](max) NULL,
+ CONSTRAINT [PK_TaskDocs] PRIMARY KEY CLUSTERED 
+(
+	[DOCID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[TeleAddrDirectly]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TeleAddrDirectly](
+	[ID] [int] NOT NULL,
+	[saveDate] [date] NULL,
+	[Name] [nvarchar](200) NULL,
+	[Mobile1] [nvarchar](11) NULL,
+	[Mobile2] [nvarchar](20) NULL,
+	[Address] [nvarchar](200) NULL,
+	[Notes] [nvarchar](200) NULL,
+ CONSTRAINT [PK_TeleAddrDirectly] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[UserID] [int] NOT NULL,
+	[UserName] [nvarchar](max) NULL,
+	[Password] [nchar](10) NULL,
+	[creadtedDate] [date] NULL,
+	[updatedDate] [date] NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[UserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[Users_privacy]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users_privacy](
+	[Form_ID] [int] NULL,
+	[Function_ID] [int] NULL,
+	[Profile_ID] [int] NULL,
+	[Privacy] [bit] NULL
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[WorkDocs]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[WorkDocs](
+	[DOCID] [int] NOT NULL,
+	[WorkBusID] [int] NULL,
+	[savedate] [date] NULL,
+	[DocName] [nvarchar](max) NULL,
+	[DocDetails] [nvarchar](max) NULL,
+	[DocPath] [nvarchar](max) NULL,
+ CONSTRAINT [PK_WorkDocs] PRIMARY KEY CLUSTERED 
+(
+	[DOCID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[WorkStatus]    Script Date: 4/4/2021 1:32:00 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[WorkStatus](
+	[ID] [int] NOT NULL,
+	[WorkBID] [int] NULL,
+	[WorkStatus] [int] NULL,
+	[workReason] [int] NULL,
+	[Employee_ID] [int] NULL,
+	[notes] [nvarchar](max) NULL,
+	[ArshefNumber] [nvarchar](50) NULL,
+ CONSTRAINT [PK_WorkStatus] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[Causes_Galsa]  WITH CHECK ADD  CONSTRAINT [FK_Causes_Galsa_Causes] FOREIGN KEY([File_Number])
+REFERENCES [dbo].[Causes] ([File_Nuumber])
+GO
+ALTER TABLE [dbo].[Causes_Galsa] CHECK CONSTRAINT [FK_Causes_Galsa_Causes]
+GO
+ALTER TABLE [dbo].[Causes_Kafala]  WITH CHECK ADD  CONSTRAINT [FK_Causes_Kafala_Causes] FOREIGN KEY([File_Number])
+REFERENCES [dbo].[Causes] ([File_Nuumber])
+GO
+ALTER TABLE [dbo].[Causes_Kafala] CHECK CONSTRAINT [FK_Causes_Kafala_Causes]
+GO
+ALTER TABLE [dbo].[Causes_Mohder]  WITH CHECK ADD  CONSTRAINT [FK_Causes_Mohder_Causes] FOREIGN KEY([File_Number])
+REFERENCES [dbo].[Causes] ([File_Nuumber])
+GO
+ALTER TABLE [dbo].[Causes_Mohder] CHECK CONSTRAINT [FK_Causes_Mohder_Causes]
+GO
+ALTER TABLE [dbo].[Causes_Pays]  WITH CHECK ADD  CONSTRAINT [FK_Causes_Pays_Causes] FOREIGN KEY([File_Number])
+REFERENCES [dbo].[Causes] ([File_Nuumber])
+GO
+ALTER TABLE [dbo].[Causes_Pays] CHECK CONSTRAINT [FK_Causes_Pays_Causes]
+GO
+ALTER TABLE [dbo].[CausesCases]  WITH CHECK ADD  CONSTRAINT [FK_CausesCases_Causes] FOREIGN KEY([File_Number])
+REFERENCES [dbo].[Causes] ([File_Nuumber])
+GO
+ALTER TABLE [dbo].[CausesCases] CHECK CONSTRAINT [FK_CausesCases_Causes]
+GO
+ALTER TABLE [dbo].[CausesFolders]  WITH CHECK ADD  CONSTRAINT [FK_CausesFolders_Causes] FOREIGN KEY([File_Number])
+REFERENCES [dbo].[Causes] ([File_Nuumber])
+GO
+ALTER TABLE [dbo].[CausesFolders] CHECK CONSTRAINT [FK_CausesFolders_Causes]
+GO

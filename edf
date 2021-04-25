@@ -1,0 +1,272 @@
+
+
+
+
+
+
+
+CREATE TABLE AboutHospital(
+	ID int NOT NULL,
+	Name varchar(500) NULL,
+	Path varchar(500) NULL,
+	Alarm varchar(500) NULL,
+	Mail varchar(250) NULL,
+	Tele varchar(11) NULL,
+	Address varchar(500) NULL,
+	Printoption varchar(50) NULL,
+	MailPath varchar(1050) NULL
+);
+
+CREATE TABLE ActionDetails(
+	ID int NOT NULL,
+	workID int NULL,
+	Customer_ID int NULL,
+	GNumber int NULL,
+	Gname varchar(100) NULL,
+	Gdate date NULL,
+	place varchar(200) NULL,
+	lowerID int NULL);
+
+
+CREATE TABLE AdminWorks(
+	AdminWorkID int NOT NULL,
+	AdminWorkName varchar(200) NULL);
+
+CREATE TABLE Advocacy(
+	ID int NOT NULL,
+	AdvocacyName varchar(100) NULL,
+	IssuesID int NULL,
+	date_add date NULL,
+	source varchar(100) NULL,
+	text varchar(500) NULL);
+
+CREATE TABLE Assets(
+	AssetsID int NOT NULL,
+	AssetsName varchar(200) NULL);
+CREATE TABLE AssetsAccounts(
+	ID int NOT NULL,
+	TransDate date NULL,
+	AssestName varchar(200) NULL,
+	AssetsID int NULL,
+	Employee_ID int NULL,
+	value numeric(18, 2) NULL,
+	supplier varchar(200) NULL,
+	startDate date NULL,
+	Notes varchar(200) NULL);
+
+CREATE TABLE BusinessAdmin(
+	ID int NOT NULL,
+	receivedate date NULL,
+	Employee_ID int NULL,
+	Customer_ID int NULL,
+	procurID int NULL,
+	procurtype varchar(100) NULL,
+	gehaName varchar(100) NULL,
+	startdate date NULL,
+	total decimal(18, 3) NULL,
+	AdminWorkID int NULL,
+	Gehaofsubject varchar(500) NULL,
+	gehaaddress varchar(500) NULL,
+	subject varchar(500) NULL);
+
+
+
+CREATE TABLE BusinessFees(
+	transID int NOT NULL,
+	ID int NULL,
+	transDate date NULL,
+	Employee_ID int NULL,
+	Customer_ID int NULL,
+	totalFees decimal(18, 3) NULL,
+	installNum int NULL,
+	PaidFees decimal(18, 3) NULL,
+	remainfees decimal(18, 3) NULL,
+	notes varchar(500) NULL,
+	transdatails varchar(500) NULL);
+
+CREATE TABLE Causes(
+	File_Nuumber int NOT NULL,
+	File_Date datetime NULL,
+	Cause_Number int NULL,
+	Causeyear varchar(6) NULL,
+	Cause_Date date NULL,
+	IssuesID int NULL,
+	Employee_ID int NULL,
+	Customer_ID int NULL,
+	Clients_charID int NULL,
+	procurID int NULL,
+	KhasmName varchar(200) NULL,
+	Khasmmobile varchar(50) NULL,
+	KhasmPhone varchar(50) NULL,
+	KhasmAddress varchar(300) NULL,
+	Khasmemail varchar(200) NULL,
+	Khasm_charID int NULL,
+	litigationDegID int NULL,
+	courtID int NULL,
+	Court_Address varchar(300) NULL,
+	Circle_Name varchar(200) NULL,
+	Cause_Subject varchar(2000) NULL,
+	Qed_date date NULL,
+	Total_Value numeric(18, 2) NULL);
+
+
+
+
+CREATE TABLE Causes_Experts(
+	File_Number int NULL,
+	Expert_id int NULL,
+	ExpertName varchar(500) NULL,
+	Cause_Number int NULL,
+	Causeyear varchar(6) NULL,
+	Deliver_Date date NULL,
+	Employee_ID int NULL,
+	Note varchar(500) NULL,
+	Visit_date date NULL
+);
+
+
+
+CREATE TABLE Causes_Galsa(
+	File_Number int NOT NULL,
+	Cause_Number int NOT NULL,
+	Causeyear varchar(6) NULL,
+	Galsa_Code int NOT NULL,
+	Galsa_Number int NOT NULL,
+	Galsa_Date date NOT NULL,
+	Paper_Number varchar(150) NULL,
+	Employee_ID int NULL,
+	courtID int NULL,
+	Role_Number int NULL,
+	Court_Decision varchar(500) NULL,
+	Requird varchar(500) NULL,
+	Note varchar(500) NULL
+);
+CREATE TABLE Causes_Kafala(
+	File_Number int NOT NULL,
+	Cause_Number int NOT NULL,
+	Causeyear varchar(6) NULL,
+	Kafala_Number int NOT NULL,
+	Kafala_Value numeric(18, 2) NULL,
+	Qasema_Number int NULL,
+	Paper_Number varchar(50) NULL,
+	Pay_Date date NULL,
+	Hokme varchar(500) NULL,
+	Note varchar(500) NULL
+);
+
+
+
+
+CREATE TABLE Causes_Mohder(
+	File_Number int NULL,
+	Mohder_number int NOT NULL,
+	Cause_Number int NULL,
+	Causeyear varchar(6) NULL,
+	Mohder_pen varchar(500) NULL,
+	Deliver_Date date NULL,
+	Galsa_Date date NULL,
+	Employee_ID int NULL,
+	Note varchar(500) NULL
+);
+CREATE TABLE Causes_Pays(
+	Trans_ID int NOT NULL,
+	File_Number int NOT NULL,
+	Cause_Number int NOT NULL,
+	Causeyear varchar(6) NULL,
+	Trans_Date date NOT NULL,
+	Employee_ID int NULL,
+	Total_Value numeric(18, 2) NULL,
+	Paied numeric(18, 2) NULL,
+	Dofaa int NULL,
+	Bayan varchar(500) NULL,
+	Note varchar(500) NULL);
+
+
+
+
+CREATE TABLE CausesCases(
+	ID int NOT NULL,
+	File_Number int NOT NULL,
+	Cause_Number int NOT NULL,
+	Causeyear varchar(6) NULL,
+	IssuStateID int NOT NULL,
+	isuueReasonsID int NULL,
+	Employee_ID int NULL,
+	Note varchar(500) NULL,
+	ArshefNumber varchar(50) NOT NULL);
+
+
+
+CREATE TABLE CausesFolders(
+	File_Number int NOT NULL,
+	Cause_Number int NOT NULL,
+	Causeyear varchar(6) NULL,
+	Folder_Number int NOT NULL,
+	Folder_date date NULL,
+	Folder_Name varchar(1000) NULL,
+	Folder_desc varchar(500) NULL,
+	Folder_Path varchar(500) NULL
+);
+CREATE TABLE Clients_char(
+	Clients_charID int NOT NULL,
+	Clients_charName varchar(500) NULL);
+
+CREATE TABLE Consultion(
+	ConsultID int NOT NULL,
+	ConsultName varchar(500) NULL);
+
+CREATE TABLE Courts(
+	courtID int NOT NULL,
+	courtName varchar(100) NULL);
+
+CREATE TABLE Customer(
+	Customer_ID int NOT NULL,
+	Customer_name varchar(100) NULL,
+	Mobile varchar(100) NULL,
+	Tele varchar(100) NULL,
+	Address varchar(100) NULL,
+	Email varchar(100) NULL,
+	NationalityID int NULL,
+	Religion varchar(50) NULL);
+
+
+
+
+CREATE TABLE Customerhistory(
+	Employee_ID int NULL,
+	Employee_Name varchar(100) NULL,
+	File_Nuumber int NULL,
+	Causeyear varchar(6) NULL,
+	Customer_ID int NULL,
+	Cause_Number int NULL
+);
+
+CREATE TABLE CustomerPurcur(
+	IDD int  NOT NULL,
+	ID int NOT NULL,
+	Customer_ID int NULL,
+	purcurDate date NULL,
+	procurID int NULL,
+	GehaName varchar(150) NULL,
+	DocDate date NULL,
+	notes varchar(200) NULL,
+	Path varchar(500) NULL);
+
+CREATE TABLE DailyTasks(
+	TaskID int NOT NULL,
+	RecieveDate date NULL,
+	Employee_ID int NULL,
+	Customer_ID int NULL,
+	startDate date NULL,
+	LowerID int NULL,
+	taskDetails varchar(500) NULL,
+	GehaName varchar(500) NULL,
+	GehaAddress varchar(500) NULL);
+
+
+CREATE TABLE Documents(
+	DocID int NOT NULL,
+	savedate date NULL,
+	DocName varchar(500) NULL,
+	DocDetails varchar(500) NULL,
+	DocPath varchar(500) NULL);
